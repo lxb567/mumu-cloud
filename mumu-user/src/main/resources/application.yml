@@ -1,0 +1,21 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: mu-user
+  cloud:
+    nacos:
+      config:
+        namespace: a960c653-4d49-4d04-9c85-7a318a24e07c
+        group: dev
+        server-addr: 127.0.0.1:8848
+      discovery:
+        group: dev
+        server-addr: 127.0.0.1:8848
+        namespace: a960c653-4d49-4d04-9c85-7a318a24e07c
+  #springboot版本大于2.4.0后的升级指南 https://github.com/alibaba/spring-cloud-alibaba/tree/2021.x/spring-cloud-alibaba-examples/nacos-example/nacos-config-2.4.x-example
+  config:
+    import:
+      - optional:nacos:mu-user.yml
+      - optional:common.yml

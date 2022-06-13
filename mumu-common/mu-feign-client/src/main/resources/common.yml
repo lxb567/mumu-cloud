@@ -1,0 +1,28 @@
+logging:
+  level:
+    com.xb.api: debug
+feign:
+  httpclient:
+    enabled: true
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  compression:
+    request:
+      enabled: true
+      min-request-size: 2048
+    response:
+      enabled: true
+  circuitbreaker:
+    enabled: true
+  sentinel:
+    default-rule: default
+    rules:
+      default:
+        - grade: 2
+          count: 1
+          timeWindow: 1
+          statIntervalMs: 1000
+          minRequestAmount: 5
+
+
