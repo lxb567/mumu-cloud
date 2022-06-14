@@ -38,4 +38,9 @@ public class TestFeignController {
     public List<User> queryUserList(UserQueryParam userQueryParam) {
         return userFeignClient.queryUserList(userQueryParam);
     }
+    @GetMapping("/default/{ok}")
+    public String testSentinel(@PathVariable("ok") boolean ok) {
+
+        return userFeignClient.defaultConfig(ok);
+    }
 }

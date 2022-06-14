@@ -36,6 +36,11 @@ public class UserClientFallbackFactory implements FallbackFactory<UserFeignClien
                 list.add(userById);
                 return list;
             }
+
+            @Override
+            public String defaultConfig(boolean ok) {
+                return "我是fallback";
+            }
         };
     }
 

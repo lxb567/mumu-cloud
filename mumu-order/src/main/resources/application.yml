@@ -16,3 +16,4 @@ spring:
     import:
       - optional:nacos:mu-order.yml
       - optional:common.yml
+      - optional:nacos:sentinel-circuitbreaker-rules.yml

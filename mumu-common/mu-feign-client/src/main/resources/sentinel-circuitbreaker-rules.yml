@@ -1,0 +1,12 @@
+feign:
+  circuitbreaker:
+    enabled: true
+  sentinel:
+    default-rule: default
+    rules:
+      default:
+        - grade: 2
+          count: 1
+          timeWindow: 1
+          statIntervalMs: 1000
+          minRequestAmount: 1

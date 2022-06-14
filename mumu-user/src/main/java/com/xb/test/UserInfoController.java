@@ -37,8 +37,9 @@ public class UserInfoController {
         return "useless";
     }
 
-    @GetMapping("/{id}/x")
-    public User getUserById(@PathVariable("id") Long id){
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable("id") Long id) throws InterruptedException {
+
         if(id <1){
             throw new RuntimeException("参数有误");
         }
@@ -55,5 +56,12 @@ public class UserInfoController {
         return list;
     }
 
+    @GetMapping("/default/{ok}")
+    public String defaultTest(@PathVariable("ok") boolean ok) {
+        if(ok) {
+            return "ok";
+        }
+        throw new RuntimeException("不太ok啊");
+    }
 
 }
