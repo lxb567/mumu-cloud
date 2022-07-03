@@ -3,6 +3,7 @@ package com.xb.test;
 import com.google.gson.JsonObject;
 import com.xb.domain.User;
 import com.xb.domain.UserQueryParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserInfoController {
     @GetMapping("/{userId}/info")
     public Object userInfo(@PathVariable("userId") long userId) throws InterruptedException {
@@ -51,6 +53,7 @@ public class UserInfoController {
         if(userQueryParam == null){
             throw new RuntimeException("参数都没有");
         }
+        log.info("userQueryParam->: {}",userQueryParam);
         List<User> list = new ArrayList<>();
         list.add(User.builder().username("xxx").password("xxx").id(2L).phone("152xxx").build());
         return list;
