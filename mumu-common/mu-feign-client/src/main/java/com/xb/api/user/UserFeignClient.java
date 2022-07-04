@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 //@FeignClient(name = "mu-user",fallback = UserClientFallback.class)
-@FeignClient(name = "mu-user",path = "/user",configuration = MuFeignConfig.class,fallbackFactory = UserClientFallbackFactory.class)
+@FeignClient(value = "mu-user", name = "mu-user",path = "/user",configuration = MuFeignConfig.class,fallbackFactory = UserClientFallbackFactory.class)
 public interface UserFeignClient {
     @GetMapping("/{userId}/info")
     String getUserInfo(@PathVariable("userId") Long userId);

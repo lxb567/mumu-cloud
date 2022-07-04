@@ -1,12 +1,24 @@
 feign:
   circuitbreaker:
     enabled: true
-  sentinel:
-    default-rule: default
-    rules:
-      default:
-        - grade: 2
-          count: 1
-          timeWindow: 1
-          statIntervalMs: 1000
-          minRequestAmount: 1
+#  sentinel:
+#    default-rule: default
+#    rules:
+#      default:
+#        - grade: 2
+#          count: 1
+#          timeWindow: 15 #熔断时长，单位为s
+#          statIntervalMs: 1000 #统计时长，单位为ms
+#          minRequestAmount: 1 #熔断触发的最小请求数，请求数小于该值时即使异常比率超出阈值也不会熔断
+#      mu-user:
+#        - grade: 2
+#          count: 1
+#          timeWindow: 15
+#          statIntervalMs: 1000
+#          minRequestAmount: 1
+#spring:
+#  cloud:
+#    sentinel:
+#      transport:
+#        port: 8719
+#        dashboard: localhost:8080

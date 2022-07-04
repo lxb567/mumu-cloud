@@ -37,9 +37,13 @@
 		</dependency>
 
 		<!-- ali sentinel -->
+<!--		<dependency>-->
+<!--			<groupId>com.alibaba.cloud</groupId>-->
+<!--			<artifactId>spring-cloud-circuitbreaker-sentinel</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
-			<artifactId>spring-cloud-circuitbreaker-sentinel</artifactId>
+			<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
 		</dependency>
 	</dependencies>
 

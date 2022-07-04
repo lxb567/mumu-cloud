@@ -2,10 +2,14 @@ package com.xb.config;
 
 import feign.Logger;
 import feign.Retryer;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@EnableFeignClients(basePackages = "com.xb.api")
+@EnableDiscoveryClient
 public class MuFeignConfig {
     /**
      * 日志
@@ -22,7 +26,7 @@ public class MuFeignConfig {
      */
     @Bean
     public Retryer retryer (){
-        return new Retryer.Default(1000,5000,3);
+        return new Retryer.Default(30000,60000,3);
     }
 
 
